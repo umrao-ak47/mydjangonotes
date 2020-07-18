@@ -25,7 +25,7 @@ SECRET_KEY = '$$6#=f^2u5z42j7n(qo1nzt7&4#4@943)=$@e1_%-hwv5f++yl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mydjangonotes.herokuapp.com',]
 
 
 # Application definition
