@@ -1,0 +1,43 @@
+{% extends "notes/base.html" %}
+{% load static %}
+{% load form_tags %}
+{% block title %}Log-in{% endblock %}
+{% block content %}
+<form class="form-horizontal signin-form" role="form" action="." method="post">
+    <fieldset class="border p-2 rounded">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        <div class="form-group text-center">
+            <h1><i class="fas fa-book-open fa-lg"></i></h1>
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        </div>
+        {% for field in form %}
+            <div class="form-group">
+                <label class="col-sm-12 control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                <div class="col-sm-12">
+                    {{ field|class_attr:"form-control" }}
+                    {% if field.help_text %}
+                        <p class="help-block"><small>{{ field.help_text }}</small></p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+        {% if form.errors %}
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <p><smalll>username and password didn't match.</smalll></p>
+                </div>
+            </div>
+        {% endif %}
+        <div class="form-group">
+            <div class="col-sm-12 text-center">
+                <button type="submit" class="btn btn-primary">Sign in</button>
+            </div>
+            <div class="col-sm-12 pt-2">
+                <small>Don't have an account? <a href="{% url 'notes:register' %}">Sign up</a></small>
+            </div>
+        </div>
+    </fieldset>
+
+</form>
+{% endblock %}

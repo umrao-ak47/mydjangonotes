@@ -1,0 +1,40 @@
+.list-group-item:hover{
+    background-color: rgb(216, 223, 226);
+}
+
+.signin-form{
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: auto;
+}
+
+.log-button{
+    color: white;
+    border: 2px solid white;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 5px 8px;
+}
+
+.log-button:hover{
+    color: rgb(207, 83, 207);
+    background-color: white;
+    text-decoration: none;
+}
+
+.main-header{
+    background-image: linear-gradient(to right,rgb(230, 45, 236),
+     rgb(168, 39, 194), rgb(230, 45, 236));
+    color: white;
+}
+
+.btn-custom{
+    background-color: aquamarine;
+}
+
+.btn-custom:hover{
+    background-color: rgb(191, 8, 236);
+    color: white;
+}
+

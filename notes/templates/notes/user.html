@@ -1,0 +1,26 @@
+{% extends "notes/base.html" %}
+{% load static %}
+{% block title %}User Home{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <a href="{% url 'notes:note_create' %}" class="btn btn-primary mb-2">Create New Note</a>
+        </div>
+        <div class="col-12">
+            <div class="list-group">
+                {% for note in notes %}
+                    <a href="{{ note.get_absolute_url }}" class="list-group-item list-group-item-action">
+                        <div class="row">
+                            <h5 class="mb-1 col-sm-12 col-lg-10" style="color: black;">{{ note.title }}</h5>
+                            <small class="col-sm-12 col-lg-2 text-lg-right">{{ note.get_date }}</small>
+                        </div>
+                        <p class="mb-1">{{ note.body|truncatewords:30 }}</p>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {% include "notes/pagination.html" with page=notes %}
+    </div>
+{% endblock %}
