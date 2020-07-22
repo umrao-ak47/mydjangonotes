@@ -8,8 +8,10 @@
             <p class="lead"><strong>Take your notes and save all of them at one place</strong></p>
             <hr class="my-4">
             <p>A sample notes taking application built using DJANGO and SQLITE database</p>
-            <a class="btn btn-outline-primary btn-lg" href="{% url 'notes:login' %}" role="button">Log in</a>
-            <a class="btn btn-outline-primary btn-lg" href="{% url 'notes:register' %}" role="button">Register</a>
+            {% if not request.user.is_authenticated %}
+                <a class="btn btn-outline-primary btn-lg" href="{% url 'notes:login' %}" role="button">Log in</a>
+                <a class="btn btn-outline-primary btn-lg" href="{% url 'notes:register' %}" role="button">Register</a>
+            {% endif %}
         </div>
     </div>
     <footer class="page-footer font-small darken-3">

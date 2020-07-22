@@ -1,12 +1,17 @@
 {% extends "notes/base.html" %}
 {% load static %}
+{% load markup_tags %}
 {% block title %}Note Details{% endblock %}
 {% block content %}
     <div class="row">
-        <h1 class="col-sm-12">{{ note.title }}</h1>
+        <h3 class="col-sm-12 text-left">{{ note.title }}</h3>
         <p class="col-sm-12">{{ note.publish }}</p>
-        <p class="col-sm-12 text-justify">{{ note.body }}</p>
     </div>
+    <hr class="my-2">
+    <div class="row">
+        <div class="col-sm-12 text-justify">{{ note.body|markup }}</div>
+    </div>
+    <hr class="mt-4 mb-2"> 
     <div class="row">
         <div class="col-4 col-md-2 col-lg-1">
             <form action="{{ note.get_update_url }}" method="GET" class="form-inline">
