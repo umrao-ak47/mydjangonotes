@@ -1,4 +1,4 @@
-Django==3.1.6
+Django==3.1.9
 dj-database-url==0.5.0
 django-heroku==0.3.1 
 django-bootstrap-static==4.2.1
